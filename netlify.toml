@@ -1,0 +1,7 @@
+# Erzwingt, dass Netlify die ausgelieferte HTML/CSS/JS NICHT nachbearbeitet
+# (kein Bundling, keine Minifizierung, keine automatische E-Mail-Verschleierung).
+# Das garantiert, dass die Seite byte-identisch zu dem ausgeliefert wird, was
+# im Repository liegt — unabhängig davon, welche Post-Processing-Haken im
+# Projekt (auch aus älteren Einstellungen) noch aktiv sein könnten.
+[build.processing]
+  skip_processing = true
