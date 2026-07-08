@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Datenschutz – VENTO Executive Search</title>
+  <meta name="description" content="Datenschutzerklärung der VENTO Executive Search GbR – Informationen zur Verarbeitung personenbezogener Daten, Webanalyse und Ihren Rechten.">
+  <link rel="canonical" href="https://vento-executives-test.netlify.app/datenschutz.html">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#061E42">
+  <link rel="icon" type="image/png" href="images/favicon-v2.png">
+  <link rel="apple-touch-icon" href="images/apple-touch-icon-v2.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,300..700;1,8..60,300..700&family=Inter:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --vento-navy:       #0A2E63;
+      --vento-navy-deep:  #061E42;
+      --vento-navy-soft:  #1A3E73;
+      --vento-gold:       #B8A57A;
+      --vento-gold-soft:  #D4C9A8;
+      --vento-gold-deep:  #9A8762;
+      --vento-paper:      #FBFAF6;
+      --vento-mist:       #F1ECE3;
+      --border: rgba(10,46,99,0.12);
+      --serif: 'Source Serif 4', Georgia, serif;
+      --wordmark: "Avenir Next", "Avenir", "Nunito Sans", "Century Gothic", sans-serif;
+      --sans:  'Inter', system-ui, sans-serif;
+    }
+    html { scroll-behavior: smooth; background: var(--vento-paper); }
+    ::selection { background: rgba(184,165,122,0.35); }
+    a, button { -webkit-tap-highlight-color: transparent; }
+    a:focus-visible { outline: 1px solid var(--vento-gold); outline-offset: 3px; }
+    body {
+      font-family: var(--sans); color: var(--vento-navy-deep);
+      background: var(--vento-paper); font-weight: 300; line-height: 1.7;
+      -webkit-font-smoothing: antialiased; overflow-x: hidden;
+    }
+
+    /* ── NAV ─────────────────────────────── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 5vw; height: 80px;
+      background: rgba(251,250,246,0.9); backdrop-filter: blur(14px);
+      box-shadow: 0 1px 0 var(--border);
+    }
+    .nav-logo { display: flex; align-items: center; text-decoration: none; position: relative; }
+    .nav-logo-svg { height: 50px; width: auto; display: block; --logo-spd: 1.7; }
+    .back-link {
+      font-family: var(--sans); font-size: 0.68rem; letter-spacing: 0.18em;
+      text-transform: uppercase; color: var(--vento-gold-deep); text-decoration: none;
+      display: inline-flex; align-items: center; gap: 8px; font-weight: 500;
+      transition: color 0.25s, gap 0.25s;
+    }
+    .back-link .arw { transition: transform 0.25s; }
+    .back-link:hover { color: var(--vento-navy); }
+    .back-link:hover .arw { transform: translateX(-4px); }
+
+    /* ── Logo-Animation (identisch zur Startseite) ── */
+    @media (prefers-reduced-motion: no-preference) {
+      .nav-logo-svg.anim-ready .logo-v,
+      .nav-logo-svg.anim-ready .logo-swoosh,
+      .nav-logo-svg.anim-ready .logo-divider,
+      .nav-logo-svg.anim-ready .logo-word,
+      .nav-logo-svg.anim-ready .logo-sub { opacity: 0; }
+      .nav-logo-svg.play .logo-v {
+        transform-box: fill-box; transform-origin: 50% 100%;
+        animation: logoV calc(var(--logo-spd) * 0.9s) cubic-bezier(.33,.08,.2,1) forwards;
+      }
+      .nav-logo-svg.play .logo-swoosh {
+        clip-path: inset(0 100% 0 0);
+        animation: logoSwoosh calc(var(--logo-spd) * 1.05s) cubic-bezier(.33,.08,.2,1) calc(var(--logo-spd) * 0.4s) forwards;
+      }
+      .nav-logo-svg.play .logo-divider {
+        transform-box: fill-box; transform-origin: 50% 0%;
+        animation: logoDivider calc(var(--logo-spd) * 0.7s) cubic-bezier(.33,.08,.2,1) calc(var(--logo-spd) * 0.6s) forwards;
+      }
+      .nav-logo-svg.play .logo-word {
+        transform-box: fill-box; transform-origin: 0% 50%;
+        animation: logoWord calc(var(--logo-spd) * 0.85s) cubic-bezier(.33,.08,.2,1) calc(var(--logo-spd) * 0.68s) forwards;
+      }
+      .nav-logo-svg.play .logo-sub {
+        animation: logoFade calc(var(--logo-spd) * 0.85s) cubic-bezier(.33,.08,.2,1) calc(var(--logo-spd) * 0.95s) forwards;
+      }
+      @keyframes logoV { from { opacity: 0; transform: translateY(7px) scale(0.94); } to { opacity: 1; transform: none; } }
+      @keyframes logoSwoosh { from { opacity: 1; clip-path: inset(0 100% 0 0); } to { opacity: 1; clip-path: inset(0 0 0 0); } }
+      @keyframes logoDivider { from { opacity: 0; transform: scaleY(0); } to { opacity: 1; transform: scaleY(1); } }
+      @keyframes logoWord { from { opacity: 0; transform: translateX(-10px); } to { opacity: 1; transform: none; } }
+      @keyframes logoFade { to { opacity: 1; } }
+
+      .nav-logo::after {
+        content: ''; position: absolute; top: 0; left: 0; height: 100%; width: 42%;
+        background: linear-gradient(105deg, transparent 0%, rgba(212,201,168,0.0) 30%, rgba(212,201,168,0.55) 50%, rgba(212,201,168,0.0) 70%, transparent 100%);
+        transform: translateX(-130%); opacity: 0; pointer-events: none;
+      }
+      .nav-logo:hover::after { animation: logoGleam calc(var(--logo-spd) * 0.85s) cubic-bezier(.33,.08,.2,1); }
+      @keyframes logoGleam {
+        0% { transform: translateX(-130%); opacity: 0; }
+        20% { opacity: 1; }
+        100% { transform: translateX(230%); opacity: 0; }
+      }
+    }
+
+    /* ── PAGE HEADER (navy band) ─────────── */
+    main { padding-top: 80px; }
+    .page-header {
+      background: var(--vento-navy-deep); color: var(--vento-paper);
+      padding: clamp(72px, 12vh, 132px) 5vw clamp(56px, 9vh, 96px);
+      position: relative; overflow: hidden;
+    }
+    .page-header-inner { max-width: 1080px; margin: 0 auto; }
+    .ph-eyebrow {
+      font-family: var(--sans); font-size: 0.7rem; letter-spacing: 0.32em;
+      text-transform: uppercase; color: var(--vento-gold); font-weight: 500;
+      margin-bottom: 26px;
+    }
+    .page-header h1 {
+      font-family: var(--serif); font-size: clamp(2.6rem, 6vw, 5rem);
+      font-weight: 200; line-height: 1.0; letter-spacing: -0.01em;
+    }
+    .ph-rule { width: 64px; height: 1px; background: var(--vento-gold); margin-top: 40px; }
+
+    /* ── CONTENT ─────────────────────────── */
+    .content { max-width: 1080px; margin: 0 auto; padding: clamp(64px, 10vh, 112px) 5vw clamp(72px, 12vh, 128px); }
+    .legal-block {
+      padding: 46px 0;
+      border-top: 1px solid var(--border);
+    }
+    .legal-block:first-child { border-top: none; padding-top: 0; }
+    .legal-block h2 {
+      font-family: var(--serif); font-size: clamp(1.5rem, 2.6vw, 2.05rem);
+      font-weight: 300; line-height: 1.15; color: var(--vento-navy);
+      margin-bottom: 22px; letter-spacing: -0.005em;
+    }
+    .legal-body h3 {
+      font-family: var(--serif); font-size: 1.18rem; font-weight: 500;
+      color: var(--vento-navy); margin: 28px 0 12px;
+    }
+    .legal-body h3:first-child { margin-top: 0; }
+    .legal-body p {
+      font-size: 1rem; color: rgba(10,46,99,0.72); margin-bottom: 16px;
+      line-height: 1.85; max-width: 64ch;
+      text-align: justify; text-justify: inter-word; hyphens: auto;
+    }
+    .legal-body p:last-child { margin-bottom: 0; }
+    .legal-body a {
+      color: var(--vento-navy); text-decoration: none;
+      border-bottom: 1px solid var(--vento-gold); padding-bottom: 1px;
+      transition: color 0.2s, border-color 0.2s; overflow-wrap: anywhere;
+    }
+    .legal-body a:hover { color: var(--vento-gold-deep); border-color: var(--vento-gold-deep); }
+    .legal-body strong { font-weight: 500; color: var(--vento-navy); }
+
+    /* ── FOOTER ──────────────────────────── */
+    footer {
+      background: var(--vento-mist); padding: 44px 5vw;
+      border-top: 1px solid var(--border);
+    }
+    .footer-bottom {
+      max-width: 1080px; margin: 0 auto;
+      display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap;
+    }
+    .footer-copy { font-size: 0.76rem; color: rgba(10,46,99,0.5); letter-spacing: 0.02em; }
+    .footer-legal { display: flex; gap: 28px; list-style: none; }
+    .footer-legal a {
+      font-family: var(--sans); font-size: 0.68rem; letter-spacing: 0.14em;
+      text-transform: uppercase; color: rgba(10,46,99,0.55); text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-legal a:hover { color: var(--vento-navy); }
+
+    @media (max-width: 720px) {
+      nav { height: 68px; padding: 0 6vw; }
+      .nav-logo-svg { height: 42px; }
+      .back-link span.txt { display: none; }
+      main { padding-top: 68px; }
+      .legal-block { padding: 36px 0; }
+      .content { padding: 48px 6vw 64px; }
+      .footer-bottom { flex-direction: column; align-items: flex-start; gap: 16px; }
+    }
+  </style>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5YBVWKC327"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {
+    'ad_storage': 'denied',
+    'ad_user_data': 'denied',
+    'ad_personalization': 'denied',
+    'analytics_storage': 'denied'
+  });
+  gtag('js', new Date());
+  gtag('config', 'G-5YBVWKC327', { 'anonymize_ip': true });
+  try {
+    if (localStorage.getItem('vento-consent') === 'granted') {
+      gtag('consent', 'update', { 'analytics_storage': 'granted' });
+    }
+  } catch(e) {}
+</script>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-logo" aria-label="VENTO Executive Search – zur Startseite">
+    <svg class="nav-logo-svg" viewBox="0 0 1400 330" aria-label="VENTO Executive Search">
+      <g transform="translate(10, 22) scale(0.97)">
+        <path class="logo-v" fill="#0A2E63" d="M17 18L26 19L29 21L38 23L55 32L58 35L65 39L66 41L77 50L89 64L99 78L106 91L116 106L116 108L118 110L126 126L132 135L132 137L134 139L138 148L140 150L142 156L144 158L144 160L146 162L149 168L149 170L151 172L153 178L159 188L159 190L165 200L165 202L170 212L172 214L175 211L176 208L176 203L180 191L180 186L182 183L182 178L185 171L188 158L190 155L190 153L192 151L192 149L200 133L200 131L205 124L207 119L209 118L213 111L219 104L224 100L227 96L235 90L253 80L265 76L238 109L223 134L222 138L220 140L220 142L214 152L214 154L210 161L210 163L202 181L199 192L193 206L193 209L187 223L187 226L185 228L185 231L175 252L173 254L173 256L171 258L171 260L169 262L165 271L161 276L161 278L159 280L159 282L157 285L145 260L145 258L139 247L139 245L133 234L133 232L129 225L129 223L125 216L125 214L121 207L117 196L115 194L115 192L113 189L113 187L111 185L109 178L107 176L103 165L101 163L100 158L98 156L98 154L90 139L90 137L86 131L86 129L84 127L84 125L82 123L82 121L80 119L80 117L78 115L78 113L72 104L72 102L66 93L66 91L64 89L62 84L60 82L60 80L58 78L46 56L43 53L42 50L37 44L31 34Z"/>
+        <path class="logo-swoosh" fill="#B8A57A" d="M284 17L290 17L289 18L276 24L274 26L269 28L261 34L258 35L255 38L252 39L248 43L247 43L244 46L243 46L240 49L239 49L224 63L222 64L222 65L211 76L211 77L206 82L206 83L204 84L204 85L200 89L200 90L197 93L197 94L185 108L185 109L171 129L169 134L167 136L165 141L163 143L160 149L160 146L161 145L161 139L162 138L162 130L163 129L163 126L164 125L164 121L166 117L166 114L168 111L168 107L170 105L170 102L172 100L172 98L178 86L182 81L184 76L187 73L188 70L190 69L190 68L196 61L196 60L197 60L198 58L213 44L214 44L217 41L218 41L226 35L228 35L230 33L237 29L239 29L242 27L244 27L252 23L256 23L257 22L263 21L264 20L267 20L268 19L275 19L276 18L283 18Z"/>
+      </g>
+      <line class="logo-divider" x1="400" y1="28" x2="400" y2="302" stroke="#0A2E63" stroke-width="1.5"/>
+      <text class="logo-word" x="432" y="218" font-family="'Nunito Sans','Century Gothic',sans-serif" font-weight="600" font-size="172" textLength="940" lengthAdjust="spacing" fill="#0A2E63">VENTO</text>
+      <text class="logo-sub" x="432" y="298" font-family="'Nunito Sans','Century Gothic',sans-serif" font-weight="300" font-size="60" textLength="940" lengthAdjust="spacing" fill="#B8A57A" letter-spacing="4">EXECUTIVE SEARCH</text>
+    </svg>
+  </a>
+  <a href="index.html" class="back-link"><span class="arw">←</span><span class="txt">Zurück zur Startseite</span></a>
+</nav>
+<main>
+  <div class="page-header">
+    <div class="page-header-inner">
+      <p class="ph-eyebrow">Rechtliches</p>
+      <h1>Datenschutz</h1>
+      <div class="ph-rule"></div>
+    </div>
+  </div>
+  <div class="content">
+    <div class="legal-block">
+      <div class="legal-body">
+        <h2>Datenschutz auf einen Blick</h2>
+        <h3>Allgemeine Hinweise</h3>
+        <p>Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen Daten passiert, wenn Sie unsere Website besuchen. Personenbezogene Daten sind alle Daten, mit denen Sie persönlich identifiziert werden können.</p>
+        <h3>Datenerfassung auf unserer Website</h3>
+        <p><strong>Wer ist verantwortlich für die Datenerfassung auf dieser Website?</strong><br>
+        Die Datenverarbeitung auf dieser Website erfolgt durch den Websitebetreiber. Dessen Kontaktdaten können Sie dem Impressum dieser Website entnehmen.</p>
+        <p><strong>Wie erfassen wir Ihre Daten?</strong><br>
+        Ihre Daten werden zum einen dadurch erhoben, dass Sie uns diese mitteilen – etwa wenn Sie das Kontaktformular nutzen oder uns eine E-Mail schreiben. Andere Daten werden automatisch oder nach Ihrer Einwilligung beim Besuch der Website durch unsere IT-Systeme erfasst.</p>
+        <p><strong>Wofür nutzen wir Ihre Daten?</strong><br>
+        Ein Teil der Daten wird erhoben, um eine fehlerfreie Bereitstellung der Website zu gewährleisten. Andere Daten können zur Analyse Ihres Nutzerverhaltens verwendet werden.</p>
+      </div>
+    </div>
+
+    <div class="legal-block">
+      <div class="legal-body">
+        <h2>Hosting</h2>
+        <p>Diese Website wird bei einem externen Dienstleister gehostet. Personenbezogene Daten, die auf dieser Website erfasst werden, werden auf den Servern des Hosters gespeichert. Hierbei kann es sich v. a. um IP-Adressen, Kontaktanfragen, Meta- und Kommunikationsdaten, Vertragsdaten, Kontaktdaten, Namen, Websitezugriffe und sonstige Daten, die über eine Website generiert werden, handeln.</p>
+      </div>
+    </div>
+
+    <div class="legal-block">
+      <div class="legal-body">
+        <h2>Allgemeine Hinweise und Pflichtinformationen</h2>
+        <h3>Datenschutz</h3>
+        <p>Die Betreiber dieser Seiten nehmen den Schutz Ihrer persönlichen Daten sehr ernst. Wir behandeln Ihre personenbezogenen Daten vertraulich und entsprechend der gesetzlichen Datenschutzvorschriften sowie dieser Datenschutzerklärung.</p>
+        <p>Wenn Sie diese Website benutzen, werden verschiedene personenbezogene Daten erhoben. Personenbezogene Daten sind Daten, mit denen Sie persönlich identifiziert werden können. Die vorliegende Datenschutzerklärung erläutert, welche Daten wir erheben und wofür wir sie nutzen.</p>
+        <h3>Hinweis zur verantwortlichen Stelle</h3>
+        <p>Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist:<br><br>
+        VENTO Executive Search<br>
+        Frankfurt am Main<br>
+        E-Mail: <a href="mailto:Stephan.Fuechtner@VENTO-Executives.com">Stephan.Fuechtner@VENTO-Executives.com</a><br>
+        Telefon: <a href="tel:+491709126911">+49 170 912 6911</a></p>
+      </div>
+    </div>
+
+    <div class="legal-block">
+      <div class="legal-body">
+        <h2>Datenerfassung auf dieser Website</h2>
+        <h3>Kontaktformular</h3>
+        <p>Wenn Sie uns per Kontaktformular Anfragen zukommen lassen, werden Ihre Angaben aus dem Anfrageformular inklusive der von Ihnen dort angegebenen Kontaktdaten zwecks Bearbeitung der Anfrage und für den Fall von Anschlussfragen bei uns gespeichert. Diese Daten geben wir nicht ohne Ihre Einwilligung weiter.</p>
+        <p>Die Verarbeitung dieser Daten erfolgt auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO, sofern Ihre Anfrage mit der Erfüllung eines Vertrags zusammenhängt oder zur Durchführung vorvertraglicher Maßnahmen erforderlich ist. In allen übrigen Fällen beruht die Verarbeitung auf unserem berechtigten Interesse an der effektiven Bearbeitung der an uns gerichteten Anfragen (Art. 6 Abs. 1 lit. f DSGVO).</p>
+      </div>
+    </div>
+
+    <div class="legal-block">
+      <div class="legal-body">
+        <h2>Webanalyse — Google Analytics</h2>
+        <p>Diese Website nutzt Funktionen des Webanalysedienstes Google Analytics. Anbieter ist die Google Ireland Limited („Google"), Gordon House, Barrow Street, Dublin 4, Irland.</p>
+        <p>Google Analytics ermöglicht es uns, das Verhalten der Websitebesucher zu analysieren. Hierbei erhalten wir verschiedene Nutzungsdaten, wie z. B. aufgerufene Seiten, Verweildauer, das verwendete Betriebssystem, die Herkunft des Nutzers (Region), den verwendeten Browser sowie das Endgerät (Desktop oder Mobil). Diese Daten werden in einem Pseudonym zusammengefasst; eine unmittelbare Identifizierung Ihrer Person ist uns dadurch nicht möglich.</p>
+        <p>Die Nutzung von Google Analytics erfolgt ausschließlich auf Grundlage Ihrer Einwilligung gemäß Art. 6 Abs. 1 lit. a DSGVO und § 25 Abs. 1 TTDSG. Solange Sie nicht eingewilligt haben, werden keine Analyse-Cookies gesetzt und keine Daten an Google übermittelt. Die Einwilligung kann jederzeit mit Wirkung für die Zukunft widerrufen werden, indem Sie die gespeicherten Cookies in Ihrem Browser löschen.</p>
+        <p>Wir haben auf dieser Website die IP-Anonymisierung aktiviert. Dadurch wird Ihre IP-Adresse von Google innerhalb der EU bzw. des EWR vor der Übermittlung gekürzt. Die Datenübertragung in die USA wird auf das EU-US Data Privacy Framework gestützt. Weitere Informationen zum Umgang mit Nutzerdaten bei Google Analytics finden Sie in der Datenschutzerklärung von Google: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">https://policies.google.com/privacy</a>.</p>
+      </div>
+    </div>
+
+    <div class="legal-block">
+      <div class="legal-body">
+        <h2>Ihre Rechte</h2>
+        <p>Sie haben jederzeit das Recht, unentgeltlich Auskunft über Herkunft, Empfänger und Zweck Ihrer gespeicherten personenbezogenen Daten zu erhalten. Sie haben außerdem ein Recht, die Berichtigung oder Löschung dieser Daten zu verlangen. Wenn Sie eine Einwilligung zur Datenverarbeitung erteilt haben, können Sie diese Einwilligung jederzeit für die Zukunft widerrufen. Außerdem haben Sie das Recht, unter bestimmten Umständen die Einschränkung der Verarbeitung Ihrer personenbezogenen Daten zu verlangen.</p>
+        <p>Hierzu sowie zu weiteren Fragen zum Thema Datenschutz können Sie sich jederzeit an uns wenden:<br>
+        <a href="mailto:Marvin.Haas@VENTO-Executives.com">Marvin.Haas@VENTO-Executives.com</a></p>
+      </div>
+    </div>
+  </div>
+</main>
+<footer>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2026 VENTO Executive Search GbR · Bad Homburg</span>
+    <ul class="footer-legal">
+      <li><a href="impressum.html">Impressum</a></li>
+      <li><a href="datenschutz.html">Datenschutz</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script>
+  /* Logo-Einblendung beim Laden (identisch zur Startseite) */
+  (function(){
+    var svg = document.querySelector('.nav-logo-svg');
+    if (!svg) return;
+    if (!window.matchMedia('(prefers-reduced-motion: no-preference)').matches) return;
+    svg.classList.add('anim-ready');
+    requestAnimationFrame(function(){
+      requestAnimationFrame(function(){ svg.classList.add('play'); });
+    });
+  })();
+</script>
+</body>
+</html>

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://vento-executives-test.netlify.app/sitemap.xml

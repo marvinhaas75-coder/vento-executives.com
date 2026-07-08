@@ -1,0 +1,13 @@
+# Statische Bilder langfristig cachen — Dateinamen ändern sich bei neuem
+# Inhalt (z. B. og-vento-v2.png), daher ist immutable-Caching sicher und
+# beschleunigt Wiederholungsbesuche spürbar.
+/images/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Basis-Sicherheits-Header — ändern nichts am Erscheinungsbild, verbessern
+# aber Lighthouse „Best Practices“ und den Schutz der Besucher.
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
