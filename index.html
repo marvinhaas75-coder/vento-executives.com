@@ -455,7 +455,7 @@
     }
     .hero-title {
       font-family: var(--serif);
-      font-size: clamp(4rem, 10vw, 9.5rem);
+      font-size: clamp(3.6rem, 9vw, 8.55rem);
       font-weight: 200; line-height: 0.95; letter-spacing: -0.01em;
       color: var(--white); margin-bottom: 40px;
     }
@@ -863,6 +863,9 @@
        dass die längste Zeile immer genau in die Spaltenbreite passt —
        auf jedem Viewport bleiben es exakt fünf Zeilen. */
     .vcredo-line { display: block; white-space: nowrap; }
+    /* Tweak: Zielgruppen-Breite — „scope-ext" nur sichtbar, wenn breit gewählt */
+    body:not([data-scope="broad"]) .scope-ext { display: none; }
+    body[data-scope="broad"] .scope-narrow { display: none; }
     .vcredo-claim em { font-style: normal; color: var(--vento-gold); }
     .vcredo-lead {
       font-family: var(--serif);
@@ -1404,11 +1407,11 @@
     .team-title {
       font-family: var(--serif);
       font-size: clamp(3rem, 7vw, 6.5rem);
-      font-weight: 200; line-height: 0.95; color: var(--white);
+      font-weight: 200; line-height: 1.08; color: var(--white);
     }
     .team-title em { font-style: normal; color: var(--vento-gold); }
     .team-grid {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 48px;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 120px;
     }
     .team-member {
       background: var(--team-bg);
@@ -1418,6 +1421,18 @@
        Fotos \u2014 die weich auslaufenden R\u00e4nder verschmelzen nahtlos, kein Rechteck. */
     .team-member.r-r { --team-bg: transparent; --team-gradient: 6,15,30; }
     .team-member.r-l { --team-bg: transparent; }
+    /* ── Tweak: Foto-Größe (nur Desktop) ── S / M / L ──
+       Skaliert die Porträt-Spaltenbreite; M = bisheriger Stand. */
+    @media (min-width: 601px) {
+      body[data-team-photo="s"] .team-photo-wrap { max-width: none; margin-left: auto; margin-right: auto; }
+      body[data-team-photo="m"] .team-photo-wrap { max-width: none; margin-left: auto; margin-right: auto; }
+      body[data-team-photo="l"] .team-photo-wrap { max-width: none; }
+      /* Foto, Info-Block und Bio füllen jetzt dieselbe Spaltenbreite —
+         Foto so breit wie der Text, alles bündig. */
+      body[data-team-photo="s"] .team-name-bar { max-width: none; }
+      body[data-team-photo="m"] .team-name-bar { max-width: none; }
+      body[data-team-photo="s"] .team-bio, body[data-team-photo="m"] .team-bio { max-width: none; }
+    }
     .team-photo-wrap { position: relative; overflow: hidden; margin: 40px 0 0; outline: 1px solid var(--team-frame); outline-offset: -1px; }
     .team-photo {
       width: 100%; aspect-ratio: 4/5; object-fit: cover;
@@ -1455,9 +1470,9 @@
     body[data-team-layout="below"] .team-member:hover .team-photo { transform: scale(1.06); }
     body[data-team-layout="below"] .team-name-bar {
       position: relative; z-index: 2; text-align: left;
-      /* Info-Block ins Bild ziehen: sitzt in der unteren, ausgefadeten Foto-Zone.
-         Kein zusätzlicher dunkler Kasten — der ausgefadete Foto-Hintergrund trägt die Schrift. */
-      margin-top: -230px; padding: 104px 30px 24px;
+      /* Info-Block sitzt UNTER dem Foto (nicht mehr ins Bild gezogen).
+         Kein seitliches Padding — Name/Rolle/Kontakt fluchten mit dem Bio-Text. */
+      margin-top: 0; padding: 18px 0 0;
       background: none;
     }
     /* „Kontakt speichern“ sitzt in derselben Zeile wie die Telefonnummer, ganz rechts. */
@@ -1471,13 +1486,15 @@
     /* Foto rundum weich auslaufen lassen — alle vier Ränder lösen sich sanft
        in den Navy-Grund auf (elegantes, schwebendes Porträt). */
     body[data-team-layout="below"] .team-photo {
+      /* Seitliche Auflösung minimal (statt kräftig) — das Foto liest sich dadurch
+         genauso breit wie der Bio-Text darunter, bleibt oben/unten aber weich. */
       -webkit-mask-image:
-        linear-gradient(to right, transparent 0%, #000 6%, #000 94%, transparent 100%),
-        linear-gradient(to bottom, transparent 0%, #000 5%, #000 90%, transparent 100%);
+        linear-gradient(to right, transparent 0%, #000 1.5%, #000 98.5%, transparent 100%),
+        linear-gradient(to bottom, transparent 0%, #000 4%, #000 97%, transparent 100%);
       -webkit-mask-composite: source-in;
       mask-image:
-        linear-gradient(to right, transparent 0%, #000 6%, #000 94%, transparent 100%),
-        linear-gradient(to bottom, transparent 0%, #000 5%, #000 90%, transparent 100%);
+        linear-gradient(to right, transparent 0%, #000 1.5%, #000 98.5%, transparent 100%),
+        linear-gradient(to bottom, transparent 0%, #000 4%, #000 97%, transparent 100%);
       mask-composite: intersect;
     }
     .team-name-row {
@@ -1508,6 +1525,7 @@
       /* Weiche Navy-Aura statt Kasten — hebt Name/Rolle klar vom Foto ab. */
       text-shadow: 0 1px 18px rgba(6,25,53,0.9), 0 1px 3px rgba(6,25,53,0.8);
     }
+    .team-role-dot { color: var(--vento-gold, #B8A57A); margin: 0 0.5em; font-weight: 700; }
     .team-role {
       font-family: 'Calibri', 'Candara', 'Segoe UI', sans-serif;
       font-size: 0.95rem; letter-spacing: 0.16em; text-transform: uppercase;
@@ -1958,8 +1976,10 @@
       height: 1px; background: rgba(255,255,255,0.08); margin-bottom: 32px;
     }
 
+    .footer-contact-head { margin-bottom: 18px; }
     .footer-mid {
-      display: flex; gap: 80px; margin-bottom: 32px;
+      display: flex; gap: 48px; margin-bottom: 32px;
+      flex-wrap: wrap;
     }
     .footer-col-title {
       font-family: var(--wordmark);
@@ -1975,10 +1995,18 @@
     .footer-col-links a:hover { color: var(--white); }
 
     .footer-contact-col { display: flex; flex-direction: column; gap: 0; }
+    /* ── Tweak: Kontakt-Fokus ── blendet die (im Kontakt-Kontext überflüssige)
+       Navigations-Spalte aus und stellt die Kontaktdaten größer/zentriert dar. */
+    body[data-contact="focus"] .footer-mid { grid-template-columns: 1fr; justify-items: center; text-align: center; }
+    body[data-contact="focus"] .footer-nav-col { display: none; }
+    body[data-contact="focus"] .footer-contact-col { align-items: center; }
+    body[data-contact="focus"] .footer-contact-link { font-size: 1.15rem; margin-bottom: 12px; }
+    body[data-contact="focus"] .footer-address { font-size: 1rem; }
+    body[data-contact="focus"] .footer-col-title { font-size: 0.8rem; margin-bottom: 20px; }
     .footer-contact-link {
-      display: block; font-family: var(--serif); font-size: 0.85rem; font-weight: 300;
+      display: block; font-family: var(--serif); font-size: 1rem; font-weight: 300;
       color: rgba(255,255,255,0.82); text-decoration: none;
-      transition: color 0.2s; margin-bottom: 8px;
+      transition: color 0.2s; margin-bottom: 6px;
     }
     .footer-contact-link:hover { color: var(--vento-gold-soft); }
     .footer-address {
@@ -2291,7 +2319,7 @@
        genommen — so wächst das Overlay nicht und der Name bleibt lesbar. */
     @media (min-width: 601px) {
       .team-vcard {
-        position: absolute; right: 34px; bottom: 28px; margin-top: 0;
+        position: absolute; right: 0; bottom: 28px; margin-top: 0;
         padding: 10px 18px; font-size: 0.76rem;
         background: rgba(6,25,53,0.42); -webkit-backdrop-filter: blur(2px); backdrop-filter: blur(2px);
       }
@@ -2507,7 +2535,7 @@
       </div>
       <div class="selbstv-chap-body">
         <p>Unternehmen der öffentlichen Hand stehen unter erheblichem Veränderungsdruck. Digitalisierung, Fachkräftemangel, Infrastrukturmodernisierung, Dekarbonisierung und gesellschaftlicher Wandel treffen auf komplexe Governance-Strukturen, politische Erwartungen und hohe öffentliche Aufmerksamkeit.</p>
-        <p>Vorstände und Geschäftsführer müssen in diesem Umfeld weit mehr leisten als klassische Unternehmensführung. Sie müssen wirtschaftliche Verantwortung mit gesellschaftlichem Auftrag verbinden, Transformationen gestalten und sich souverän zwischen Politik, Verwaltung, Wirtschaft, Öffentlichkeit und Mitarbeitenden bewegen.</p>
+        <p><span class="scope-narrow">Vorstände und Geschäftsführer</span><span class="scope-ext">Vorstände, Geschäftsführer und deren Direct Reports</span> müssen in diesem Umfeld weit mehr leisten als klassische Unternehmensführung. Sie müssen wirtschaftliche Verantwortung mit gesellschaftlichem Auftrag verbinden, Transformationen gestalten und sich souverän zwischen Politik, Verwaltung, Wirtschaft, Öffentlichkeit und Mitarbeitenden bewegen.</p>
         <p>Die Besetzung solcher Schlüsselpositionen erfordert daher mehr als klassische Personalberatung. Gefragt ist ein tiefes Verständnis öffentlicher Governance, fundierte Marktkenntnis und die Fähigkeit, Persönlichkeiten zu identifizieren, die in einem anspruchsvollen und vielschichtigen Umfeld nachhaltig erfolgreich wirken.</p>
         <p style="margin-top: 0.25em;">Genau darauf ist <span class="hl">VENTO Executive Search</span> spezialisiert.</p>
       </div>
@@ -2596,7 +2624,7 @@
               <svg viewBox="0 0 72 72" width="100%" height="100%" aria-hidden="true"><g fill="none" fill-rule="evenodd"><path d="M8,72 L64,72 C68.418278,72 72,68.418278 72,64 L72,8 C72,3.581722 68.418278,-8.11624501e-16 64,0 L8,0 C3.581722,8.11624501e-16 -5.41083001e-16,3.581722 0,8 L0,64 C5.41083001e-16,68.418278 3.581722,72 8,72 Z" fill="#007EBB"></path><path d="M62,62 L51.315625,62 L51.315625,43.8021149 C51.315625,38.8127542 49.4197917,36.0245323 45.4707031,36.0245323 C41.1746094,36.0245323 38.9300781,38.9261103 38.9300781,43.8021149 L38.9300781,62 L28.6333333,62 L28.6333333,27.3333333 L38.9300781,27.3333333 L38.9300781,32.0029283 C38.9300781,32.0029283 42.0260417,26.2742151 49.3825521,26.2742151 C56.7356771,26.2742151 62,30.7644705 62,40.051212 L62,62 Z M16.349349,22.7940133 C12.8420573,22.7940133 10,19.9296567 10,16.3970067 C10,12.8643566 12.8420573,10 16.349349,10 C19.8566406,10 22.6970052,12.8643566 22.6970052,16.3970067 C22.6970052,19.9296567 19.8566406,22.7940133 16.349349,22.7940133 Z M11.0325521,62 L21.769401,62 L21.769401,27.3333333 L11.0325521,27.3333333 L11.0325521,62 Z" fill="#FFF"></path></g></svg>
             </a>
           </div>
-          <div class="team-role">MANAGING PARTNER &amp; GESELLSCHAFTER BAD&nbsp;HOMBURG</div>
+          <div class="team-role">MANAGING PARTNER &amp; GESELLSCHAFTER<span class="team-role-dot">&middot;</span>BAD&nbsp;HOMBURG</div>
           <div class="team-namebar-rule"></div>
           <div class="team-contact">
             <a href="tel:+491709126911" class="team-contact-link"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"></path></svg><span>+49 170 912 6911</span></a>
@@ -2623,7 +2651,7 @@
               <svg viewBox="0 0 72 72" width="100%" height="100%" aria-hidden="true"><g fill="none" fill-rule="evenodd"><path d="M8,72 L64,72 C68.418278,72 72,68.418278 72,64 L72,8 C72,3.581722 68.418278,-8.11624501e-16 64,0 L8,0 C3.581722,8.11624501e-16 -5.41083001e-16,3.581722 0,8 L0,64 C5.41083001e-16,68.418278 3.581722,72 8,72 Z" fill="#007EBB"></path><path d="M62,62 L51.315625,62 L51.315625,43.8021149 C51.315625,38.8127542 49.4197917,36.0245323 45.4707031,36.0245323 C41.1746094,36.0245323 38.9300781,38.9261103 38.9300781,43.8021149 L38.9300781,62 L28.6333333,62 L28.6333333,27.3333333 L38.9300781,27.3333333 L38.9300781,32.0029283 C38.9300781,32.0029283 42.0260417,26.2742151 49.3825521,26.2742151 C56.7356771,26.2742151 62,30.7644705 62,40.051212 L62,62 Z M16.349349,22.7940133 C12.8420573,22.7940133 10,19.9296567 10,16.3970067 C10,12.8643566 12.8420573,10 16.349349,10 C19.8566406,10 22.6970052,12.8643566 22.6970052,16.3970067 C22.6970052,19.9296567 19.8566406,22.7940133 16.349349,22.7940133 Z M11.0325521,62 L21.769401,62 L21.769401,27.3333333 L11.0325521,27.3333333 L11.0325521,62 Z" fill="#FFF"></path></g></svg>
             </a>
           </div>
-          <div class="team-role">CLIENT PARTNER &amp; GESELLSCHAFTER BAD&nbsp;HOMBURG</div>
+          <div class="team-role">CLIENT PARTNER &amp; GESELLSCHAFTER<span class="team-role-dot">&middot;</span>BAD&nbsp;HOMBURG</div>
           <div class="team-namebar-rule"></div>
           <div class="team-contact">
             <a href="tel:+491518705037" class="team-contact-link"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"></path></svg><span>+49 151 1870 5037</span></a>
@@ -3130,25 +3158,16 @@
     <!-- Hairline -->
     <div class="footer-rule"></div>
 
-    <!-- Nav + Kontakt -->
+    <!-- Kontakt -->
+    <div class="footer-contact-head"><p class="footer-col-title">Kontakt</p></div>
     <div class="footer-mid">
-      <div class="footer-nav-col">
-        <p class="footer-col-title">Navigation</p>
-        <ul class="footer-col-links">
-          <li><a href="#ueber">Über uns</a></li>
-          <li><a href="#selbstv">Selbstverständnis</a></li>
-          <li><a href="#leistungen">Leistungen</a></li>
-          <li><a href="#sektoren">Sektoren</a></li>
-          <li><a href="#team">Team</a></li>
-          <li><a href="#referenzen">Referenzen</a></li>
-          <li><a href="#kontakt">Kontakt</a></li>
-        </ul>
-      </div>
       <div class="footer-contact-col">
-        <p class="footer-col-title">Kontakt</p>
         <a class="footer-contact-link js-mailto" href="#" data-mu="Stephan.Fuechtner" data-md="VENTO-Executives.com" style="font-family: Inter"></a>
         <a class="footer-contact-link" href="tel:+491709126911" style="font-family: Inter">+49 170 912 6911</a>
-        <p class="footer-address" style="font-family: Inter">Landwehrweg 65 · 61350 Bad Homburg</p>
+      </div>
+      <div class="footer-contact-col">
+        <a class="footer-contact-link js-mailto" href="#" data-mu="Marvin.Haas" data-md="VENTO-Executives.com" style="font-family: Inter"></a>
+        <a class="footer-contact-link" href="tel:+491518705037" style="font-family: Inter">+49 151 870 5037</a>
       </div>
     </div>
 
@@ -3852,8 +3871,11 @@
   window.VENTO_TWEAKS = /*EDITMODE-BEGIN*/{
     "preview": "ipad",
     "insightsOn": false,
-    "marvinPhoto": "alt",
-    "teamLayout": "below"
+    "marvinPhoto": "neu",
+    "teamLayout": "below",
+    "teamPhotoSize": "s",
+    "scopeBroad": true,
+    "contactFocus": false
   }/*EDITMODE-END*/;
   (function () {
     // ── Insights-Sichtbarkeit: gilt IMMER (auch in der Geräte-Vorschau-Iframe
@@ -3895,6 +3917,33 @@
     } catch (e) {}
     function applyTeamLayout() { document.body.setAttribute('data-team-layout', teamLayout); }
     applyTeamLayout();
+
+    // ── Team-Foto-Größe (Desktop) s/m/l ──
+    var teamPhotoSize = 'm';
+    try {
+      var storedPs = localStorage.getItem('ventoTeamPhotoSize');
+      teamPhotoSize = storedPs || (window.VENTO_TWEAKS && window.VENTO_TWEAKS.teamPhotoSize) || 'm';
+    } catch (e) {}
+    function applyTeamPhotoSize() { document.body.setAttribute('data-team-photo', teamPhotoSize); }
+    applyTeamPhotoSize();
+
+    // ── Zielgruppen-Breite (Bereichsleiter mit/ohne) ──
+    var scopeBroad = true;
+    try {
+      var storedSc = localStorage.getItem('ventoScopeBroad');
+      scopeBroad = storedSc !== null ? storedSc === '1' : (window.VENTO_TWEAKS && window.VENTO_TWEAKS.scopeBroad !== false);
+    } catch (e) {}
+    function applyScope() { document.body.setAttribute('data-scope', scopeBroad ? 'broad' : 'narrow'); }
+    applyScope();
+
+    // ── Kontakt-Fokus (Nav-Spalte im Footer aus, Kontakt größer) ──
+    var contactFocus = false;
+    try {
+      var storedCf = localStorage.getItem('ventoContactFocus');
+      contactFocus = storedCf !== null ? storedCf === '1' : (window.VENTO_TWEAKS && window.VENTO_TWEAKS.contactFocus === true);
+    } catch (e) {}
+    function applyContactFocus() { document.body.setAttribute('data-contact', contactFocus ? 'focus' : 'full'); }
+    applyContactFocus();
 
     var params = new URLSearchParams(location.search);
     // Inner preview frame: clean render, never build the panel/overlay (no recursion).
@@ -3948,6 +3997,31 @@
       '<button type="button" data-tl="below">Unter dem Foto</button>' +
       '</div>' +
       '<p class="vt-note">Name, Rolle &amp; Kontakt über dem Foto oder als Block darunter.</p>' +
+      '</div>' +
+      '<div class="vt-group">' +
+      '<p class="vt-label">Foto-Größe (Desktop)</p>' +
+      '<div class="vt-seg" role="group" aria-label="Foto-Größe" id="vt-seg-photosize">' +
+      '<button type="button" data-ps="s">Klein</button>' +
+      '<button type="button" data-ps="m">Mittel</button>' +
+      '<button type="button" data-ps="l">Groß</button>' +
+      '</div>' +
+      '<p class="vt-note">Größe der Team-Porträts beim Herunterscrollen (nur Desktop).</p>' +
+      '</div>' +
+      '<div class="vt-group">' +
+      '<p class="vt-label">Zielgruppe im Einstiegstext</p>' +
+      '<div class="vt-seg" role="group" aria-label="Zielgruppe" id="vt-seg-scope">' +
+      '<button type="button" data-sc="on">Inkl. Bereichsleiter</button>' +
+      '<button type="button" data-sc="off">Nur Vorstand/GF</button>' +
+      '</div>' +
+      '<p class="vt-note">Erwähnt zusätzlich Bereichsleiter &amp; Schlüsselfunktionen.</p>' +
+      '</div>' +
+      '<div class="vt-group">' +
+      '<p class="vt-label">Kontakt-Bereich</p>' +
+      '<div class="vt-seg" role="group" aria-label="Kontakt-Bereich" id="vt-seg-contact">' +
+      '<button type="button" data-cf="on">Fokussiert</button>' +
+      '<button type="button" data-cf="off">Mit Navigation</button>' +
+      '</div>' +
+      '<p class="vt-note">Blendet die Navigations-Spalte aus und zeigt die Kontaktdaten größer/zentriert.</p>' +
       '</div>' +
       '</div>';
     document.body.appendChild(panel);
@@ -4003,6 +4077,45 @@
     }
     tlBtns.forEach(function (b) { b.addEventListener('click', function () { setTeamLayout(b.dataset.tl); }); });
     updateTlSeg();
+
+    // ── Team-Foto-Größe ──
+    var psBtns = panel.querySelectorAll('#vt-seg-photosize button');
+    function updatePsSeg() { psBtns.forEach(function (b) { b.classList.toggle('active', b.dataset.ps === teamPhotoSize); }); }
+    function setPhotoSize(val) {
+      teamPhotoSize = val;
+      try { localStorage.setItem('ventoTeamPhotoSize', val); } catch (e) {}
+      try { window.parent.postMessage({ type: '__edit_mode_set_keys', edits: { teamPhotoSize: val } }, '*'); } catch (e) {}
+      applyTeamPhotoSize();
+      updatePsSeg();
+    }
+    psBtns.forEach(function (b) { b.addEventListener('click', function () { setPhotoSize(b.dataset.ps); }); });
+    updatePsSeg();
+
+    // ── Zielgruppen-Breite ──
+    var scBtns = panel.querySelectorAll('#vt-seg-scope button');
+    function updateScSeg() { scBtns.forEach(function (b) { b.classList.toggle('active', (b.dataset.sc === 'on') === scopeBroad); }); }
+    function setScope(on) {
+      scopeBroad = on;
+      try { localStorage.setItem('ventoScopeBroad', on ? '1' : '0'); } catch (e) {}
+      try { window.parent.postMessage({ type: '__edit_mode_set_keys', edits: { scopeBroad: on } }, '*'); } catch (e) {}
+      applyScope();
+      updateScSeg();
+    }
+    scBtns.forEach(function (b) { b.addEventListener('click', function () { setScope(b.dataset.sc === 'on'); }); });
+    updateScSeg();
+
+    // ── Kontakt-Fokus ──
+    var cfBtns = panel.querySelectorAll('#vt-seg-contact button');
+    function updateCfSeg() { cfBtns.forEach(function (b) { b.classList.toggle('active', (b.dataset.cf === 'on') === contactFocus); }); }
+    function setContactFocus(on) {
+      contactFocus = on;
+      try { localStorage.setItem('ventoContactFocus', on ? '1' : '0'); } catch (e) {}
+      try { window.parent.postMessage({ type: '__edit_mode_set_keys', edits: { contactFocus: on } }, '*'); } catch (e) {}
+      applyContactFocus();
+      updateCfSeg();
+    }
+    cfBtns.forEach(function (b) { b.addEventListener('click', function () { setContactFocus(b.dataset.cf === 'on'); }); });
+    updateCfSeg();
 
     function scaleDevice() {
       var frame = overlay.querySelector('.vd-frame');
