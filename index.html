@@ -4350,5 +4350,17 @@
     });
   })();
 </script>
+<script>
+  /* Rechtsseiten sprachabhängig verlinken (DE/EN) */
+  (function(){
+    function updLegal(lang){
+      document.querySelectorAll('a[href="impressum.html"], a[href="impressum-en.html"]').forEach(function(a){ a.setAttribute('href', lang === 'en' ? 'impressum-en.html' : 'impressum.html'); });
+      document.querySelectorAll('a[href="datenschutz.html"], a[href="datenschutz-en.html"]').forEach(function(a){ a.setAttribute('href', lang === 'en' ? 'datenschutz-en.html' : 'datenschutz.html'); });
+    }
+    document.addEventListener('click', function(e){ var b = e.target.closest('.lang-toggle-btn'); if (b) updLegal(b.dataset.lang); }, true);
+    var l = 'de'; try { l = localStorage.getItem('ventoLang') || 'de'; } catch(err) {}
+    updLegal(l);
+  })();
+</script>
 </body>
 </html>

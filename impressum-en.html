@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Datenschutz – VENTO Executive Search</title>
-  <meta name="description" content="Datenschutzerklärung der VENTO Executive Search GbR – Informationen zur Verarbeitung personenbezogener Daten, Webanalyse und Ihren Rechten.">
-  <link rel="canonical" href="https://vento-executives.com/datenschutz.html">
+  <title>Legal Notice – VENTO Executive Search</title>
+  <meta name="description" content="Legal notice of VENTO Executive Search GbR – provider identification, contact details, and legal information.">
+  <link rel="canonical" href="https://vento-executives.com/impressum-en.html">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#061E42">
   <link rel="icon" type="image/png" href="images/favicon-v3.png">
@@ -91,6 +91,7 @@
       @keyframes logoWord { from { opacity: 0; transform: translateX(-10px); } to { opacity: 1; transform: none; } }
       @keyframes logoFade { to { opacity: 1; } }
 
+      /* Gold-Schimmer beim Hover — identisch zur Startseite */
       .nav-logo::after {
         content: ''; position: absolute; top: 0; left: 0; height: 100%; width: 42%;
         background: linear-gradient(105deg, transparent 0%, rgba(212,201,168,0.0) 30%, rgba(212,201,168,0.55) 50%, rgba(212,201,168,0.0) 70%, transparent 100%);
@@ -121,42 +122,45 @@
       font-family: var(--serif); font-size: clamp(2.6rem, 6vw, 5rem);
       font-weight: 200; line-height: 1.0; letter-spacing: -0.01em;
     }
+    .page-header h1 em { font-style: normal; color: var(--vento-gold); }
     .ph-rule { width: 64px; height: 1px; background: var(--vento-gold); margin-top: 40px; }
 
     /* ── CONTENT ─────────────────────────── */
     .content { max-width: 1080px; margin: 0 auto; padding: clamp(64px, 10vh, 112px) 5vw clamp(72px, 12vh, 128px); }
     .legal-block {
-      padding: 46px 0;
+      padding: 44px 0;
       border-top: 1px solid var(--border);
     }
     .legal-block:first-child { border-top: none; padding-top: 0; }
+    /* kleines goldenes Blatt-Ornament statt der früheren Kapitel-Nummer —
+       markiert jeden Abschnitt dezent, ohne eigene Spalte zu brauchen */
+    .legal-block h2::before {
+      content: ''; display: inline-block; width: 22px; height: 1px;
+      background: var(--vento-gold); margin-right: 14px; vertical-align: middle;
+      transform: translateY(-3px);
+    }
     .legal-block h2 {
       font-family: var(--serif); font-size: clamp(1.5rem, 2.6vw, 2.05rem);
       font-weight: 300; line-height: 1.15; color: var(--vento-navy);
       margin-bottom: 22px; letter-spacing: -0.005em;
     }
-    .legal-body h3 {
-      font-family: var(--serif); font-size: 1.18rem; font-weight: 500;
-      color: var(--vento-navy); margin: 28px 0 12px;
-    }
-    .legal-body h3:first-child { margin-top: 0; }
     .legal-body p {
       font-size: 1rem; color: rgba(10,46,99,0.72); margin-bottom: 16px;
-      line-height: 1.85; max-width: 64ch;
+      line-height: 1.85; max-width: 62ch;
       text-align: justify; text-justify: inter-word;
       hyphens: auto; -webkit-hyphens: auto;
       hyphenate-limit-chars: 6 3 3;
     }
+    .legal-body strong { font-weight: 500; color: var(--vento-gold-deep); }
     .legal-body p:last-child { margin-bottom: 0; }
     .legal-body p.contact-line { text-align: left; hyphens: none; overflow-wrap: anywhere; }
-    .legal-body p.legal-updated { margin-top: 28px; font-size: 0.82rem; color: rgba(10,46,99,0.5); text-align: left; hyphens: none; }
     .legal-body a {
       color: var(--vento-navy); text-decoration: none;
       border-bottom: 1px solid var(--vento-gold); padding-bottom: 1px;
-      transition: color 0.2s, border-color 0.2s; overflow-wrap: anywhere;
+      transition: color 0.2s, border-color 0.2s;
+      overflow-wrap: anywhere; word-break: break-word;
     }
     .legal-body a:hover { color: var(--vento-gold-deep); border-color: var(--vento-gold-deep); }
-    .legal-body strong { font-weight: 500; color: var(--vento-navy); }
 
     /* ── FOOTER ──────────────────────────── */
     footer {
@@ -181,8 +185,18 @@
       .nav-logo-svg { height: 42px; }
       .back-link span.txt { display: none; }
       main { padding-top: 68px; }
-      .legal-block { padding: 36px 0; }
-      .content { padding: 48px 6vw 64px; }
+      .page-header { padding: 56px 6vw 40px; }
+      .ph-eyebrow { font-size: 0.64rem; letter-spacing: 0.26em; margin-bottom: 18px; }
+      .page-header h1 { font-size: clamp(2rem, 9vw, 2.6rem); }
+      .ph-rule { margin-top: 28px; }
+      .content { padding: 40px 6vw 56px; }
+      .legal-block { padding: 26px 0; }
+      .legal-block h2 {
+        font-size: 1.28rem; margin-bottom: 14px;
+        display: flex; align-items: center; gap: 12px;
+      }
+      .legal-block h2::before { width: 16px; margin-right: 0; transform: none; flex-shrink: 0; }
+      .legal-body p { font-size: 0.94rem; line-height: 1.7; margin-bottom: 12px; text-align: left; }
       .footer-bottom { flex-direction: column; align-items: flex-start; gap: 16px; }
     }
   </style>
@@ -190,9 +204,8 @@
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-5YBVWKC327"></script>
 <script>
-  /* Consent-Widerruf: leitet zur Startseite und öffnet dort das Banner erneut. */
   document.addEventListener('click', function (e) {
-    var t = e.target.closest('#cookie-settings-link, #cookie-settings-inline');
+    var t = e.target.closest('#cookie-settings-link');
     if (!t) return;
     e.preventDefault();
     try { localStorage.removeItem('vento-consent'); } catch (err) {}
@@ -218,7 +231,7 @@
 </head>
 <body>
 <nav>
-  <a href="index.html" class="nav-logo" aria-label="VENTO Executive Search – zur Startseite">
+  <a href="index.html" class="nav-logo" aria-label="VENTO Executive Search – back to homepage">
     <svg class="nav-logo-svg" viewBox="0 0 1400 330" aria-label="VENTO Executive Search">
       <g transform="translate(10, 22) scale(0.97)">
         <path class="logo-v" fill="#0A2E63" d="M17 18L26 19L29 21L38 23L55 32L58 35L65 39L66 41L77 50L89 64L99 78L106 91L116 106L116 108L118 110L126 126L132 135L132 137L134 139L138 148L140 150L142 156L144 158L144 160L146 162L149 168L149 170L151 172L153 178L159 188L159 190L165 200L165 202L170 212L172 214L175 211L176 208L176 203L180 191L180 186L182 183L182 178L185 171L188 158L190 155L190 153L192 151L192 149L200 133L200 131L205 124L207 119L209 118L213 111L219 104L224 100L227 96L235 90L253 80L265 76L238 109L223 134L222 138L220 140L220 142L214 152L214 154L210 161L210 163L202 181L199 192L193 206L193 209L187 223L187 226L185 228L185 231L175 252L173 254L173 256L171 258L171 260L169 262L165 271L161 276L161 278L159 280L159 282L157 285L145 260L145 258L139 247L139 245L133 234L133 232L129 225L129 223L125 216L125 214L121 207L117 196L115 194L115 192L113 189L113 187L111 185L109 178L107 176L103 165L101 163L100 158L98 156L98 154L90 139L90 137L86 131L86 129L84 127L84 125L82 123L82 121L80 119L80 117L78 115L78 113L72 104L72 102L66 93L66 91L64 89L62 84L60 82L60 80L58 78L46 56L43 53L42 50L37 44L31 34Z"/>
@@ -229,109 +242,92 @@
       <text class="logo-sub" x="432" y="298" font-family="'Nunito Sans','Century Gothic',sans-serif" font-weight="300" font-size="60" textLength="940" lengthAdjust="spacing" fill="#B8A57A" letter-spacing="4">EXECUTIVE SEARCH</text>
     </svg>
   </a>
-  <a href="index.html" class="back-link"><span class="arw">←</span><span class="txt">Zurück zur Startseite</span></a>
+  <a href="index.html" class="back-link"><span class="arw">←</span><span class="txt">Back to homepage</span></a>
 </nav>
 <main>
   <div class="page-header">
     <div class="page-header-inner">
-      <p class="ph-eyebrow">Rechtliches</p>
-      <h1>Datenschutz</h1>
+      <p class="ph-eyebrow">Legal</p>
+      <h1>Legal Notice</h1>
       <div class="ph-rule"></div>
     </div>
   </div>
   <div class="content">
     <div class="legal-block">
       <div class="legal-body">
-        <h2>Datenschutz auf einen Blick</h2>
-        <h3>Allgemeine Hinweise</h3>
-        <p>Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen Daten passiert, wenn Sie unsere Website besuchen. Personenbezogene Daten sind alle Daten, mit denen Sie persönlich identifiziert werden können.</p>
-        <h3>Datenerfassung auf unserer Website</h3>
-        <p><strong>Wer ist verantwortlich für die Datenerfassung auf dieser Website?</strong><br>
-        Die Datenverarbeitung auf dieser Website erfolgt durch den Websitebetreiber. Dessen Kontaktdaten können Sie dem Impressum dieser Website entnehmen.</p>
-        <p><strong>Wie erfassen wir Ihre Daten?</strong><br>
-        Ihre Daten werden zum einen dadurch erhoben, dass Sie uns diese mitteilen – etwa wenn Sie uns eine E-Mail schreiben oder uns telefonisch kontaktieren. Andere Daten werden automatisch oder nach Ihrer Einwilligung beim Besuch der Website durch unsere IT-Systeme erfasst.</p>
-        <p><strong>Wofür nutzen wir Ihre Daten?</strong><br>
-        Ein Teil der Daten wird erhoben, um eine fehlerfreie Bereitstellung der Website zu gewährleisten. Andere Daten können zur Analyse Ihres Nutzerverhaltens verwendet werden.</p>
+        <h2>Information pursuant to Section 5 DDG</h2>
+        <p>VENTO Executive Search GbR<br>
+        Landwehrweg 65<br>
+        61350 Bad Homburg, Germany</p>
       </div>
     </div>
-
     <div class="legal-block">
       <div class="legal-body">
-        <h2>Hosting</h2>
-        <p>Diese Website wird bei der Netlify, Inc., 512 2nd Street, Suite 200, San Francisco, CA 94107, USA gehostet. Mit Netlify besteht ein Auftragsverarbeitungsvertrag; der Datentransfer in die USA erfolgt auf Grundlage der EU-Standardvertragsklauseln sowie des EU-US Data Privacy Framework. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO (sichere und effiziente Bereitstellung unseres Onlineangebots). Personenbezogene Daten, die auf dieser Website erfasst werden, werden auf den Servern des Hosters gespeichert. Hierbei kann es sich v. a. um IP-Adressen, Kontaktanfragen, Meta- und Kommunikationsdaten, Vertragsdaten, Kontaktdaten, Namen, Websitezugriffe und sonstige Daten, die über eine Website generiert werden, handeln.</p>
-      </div>
-    </div>
-
-    <div class="legal-block">
-      <div class="legal-body">
-        <h2>Allgemeine Hinweise und Pflichtinformationen</h2>
-        <h3>Datenschutz</h3>
-        <p>Die Betreiber dieser Seiten nehmen den Schutz Ihrer persönlichen Daten sehr ernst. Wir behandeln Ihre personenbezogenen Daten vertraulich und entsprechend der gesetzlichen Datenschutzvorschriften sowie dieser Datenschutzerklärung.</p>
-        <p>Wenn Sie diese Website benutzen, werden verschiedene personenbezogene Daten erhoben. Personenbezogene Daten sind Daten, mit denen Sie persönlich identifiziert werden können. Die vorliegende Datenschutzerklärung erläutert, welche Daten wir erheben und wofür wir sie nutzen.</p>
-        <h3>Hinweis zur verantwortlichen Stelle</h3>
-        <p>Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist:<br><br>
-        VENTO Executive Search GbR<br>
-        Bad Homburg<br>
-        <a href="mailto:Marvin.Haas@VENTO-Executives.com">Marvin.Haas@VENTO-Executives.com</a><br>
+        <h2>Contact</h2>
+        <p class="contact-line"><a href="mailto:Stephan.Fuechtner@VENTO-Executives.com">Stephan.Fuechtner@VENTO-Executives.com</a><br>
+        <a href="tel:+491709126911">+49 170 912 6911</a></p>
+        <p class="contact-line"><a href="mailto:Marvin.Haas@VENTO-Executives.com">Marvin.Haas@VENTO-Executives.com</a><br>
         <a href="tel:+4915118705037">+49 151 1870 5037</a></p>
       </div>
     </div>
-
     <div class="legal-block">
       <div class="legal-body">
-        <h2>Datenerfassung auf dieser Website</h2>
-        <h3>Kontaktaufnahme per E-Mail oder Telefon</h3>
-        <p>Wenn Sie uns per E-Mail oder Telefon kontaktieren, wird Ihre Anfrage inklusive aller daraus hervorgehenden personenbezogenen Daten (z. B. Name, Kontaktdaten, Inhalt der Anfrage) zwecks Bearbeitung Ihres Anliegens und für den Fall von Anschlussfragen bei uns gespeichert und verarbeitet. Diese Daten geben wir nicht ohne Ihre Einwilligung weiter.</p>
-        <p>Die Verarbeitung dieser Daten erfolgt auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO, sofern Ihre Anfrage mit der Erfüllung eines Vertrags zusammenhängt oder zur Durchführung vorvertraglicher Maßnahmen erforderlich ist. In allen übrigen Fällen beruht die Verarbeitung auf unserem berechtigten Interesse an der effektiven Bearbeitung der an uns gerichteten Anfragen (Art. 6 Abs. 1 lit. f DSGVO).</p>
+        <h2>VAT ID</h2>
+        <p>VAT identification number pursuant to Section&nbsp;27a of the German VAT Act (Umsatzsteuergesetz):<br>
+        VAT ID applied for</p>
+      </div>
+    </div>
+    <div class="legal-block">
+      <div class="legal-body">
+        <h2>Bank Details</h2>
+        <p>Taunus Sparkasse<br>
+        IBAN: DE89 5125 0000 0001 0008 37<br>
+        BIC: HELADEF1TSK</p>
+      </div>
+    </div>
+    <div class="legal-block">
+      <div class="legal-body">
+        <h2>Responsible for Content</h2>
+        <p>VENTO Executive Search GbR<br>
+        Landwehrweg 65, 61350 Bad Homburg, Germany</p>
+      </div>
+    </div>
+    <div class="legal-block">
+      <div class="legal-body">
+        <h2>Disclaimer</h2>
+        <p>The contents of our pages have been created with the greatest care. However, we cannot guarantee the accuracy, completeness, or timeliness of the content. As a service provider, we are responsible for our own content on these pages in accordance with general legislation pursuant to Section 7 (1) of the German Telemedia Act (TMG).</p>
+        <p>Pursuant to Sections 8 to 10 TMG, however, we as a service provider are not obligated to monitor transmitted or stored third-party information or to investigate circumstances that indicate unlawful activity.</p>
+      </div>
+    </div>
+    <div class="legal-block">
+      <div class="legal-body">
+        <h2>Liability for Links</h2>
+        <p>Our website contains links to external third-party websites over whose content we have no influence. We therefore cannot accept any liability for this third-party content. The respective provider or operator of the linked pages is always responsible for their content.</p>
+      </div>
+    </div>
+    <div class="legal-block">
+      <div class="legal-body">
+        <h2>Copyright</h2>
+        <p>The content and works created by the site operators on these pages are subject to German copyright law. Third-party contributions are marked as such. Reproduction, editing, distribution, and any form of exploitation beyond the limits of copyright law require the written consent of the respective author or creator.</p>
       </div>
     </div>
 
-    <div class="legal-block">
-      <div class="legal-body">
-        <h2>Webanalyse — Google Analytics</h2>
-        <p>Diese Website nutzt Funktionen des Webanalysedienstes Google Analytics. Anbieter ist die Google Ireland Limited („Google"), Gordon House, Barrow Street, Dublin 4, Irland.</p>
-        <p>Google Analytics ermöglicht es uns, das Verhalten der Websitebesucher zu analysieren. Hierbei erhalten wir verschiedene Nutzungsdaten, wie z. B. aufgerufene Seiten, Verweildauer, das verwendete Betriebssystem, die Herkunft des Nutzers (Region), den verwendeten Browser sowie das Endgerät (Desktop oder Mobil). Diese Daten werden in einem Pseudonym zusammengefasst; eine unmittelbare Identifizierung Ihrer Person ist uns dadurch nicht möglich.</p>
-        <p>Die Nutzung von Google Analytics erfolgt ausschließlich auf Grundlage Ihrer Einwilligung gemäß Art. 6 Abs. 1 lit. a DSGVO und § 25 Abs. 1 TDDDG. Solange Sie nicht eingewilligt haben, werden keine Analyse-Cookies gesetzt und keine Daten an Google übermittelt. Die Einwilligung kann jederzeit mit Wirkung für die Zukunft widerrufen werden, indem Sie die gespeicherten Cookies in Ihrem Browser löschen.</p>
-        <p>Wir setzen Google Analytics 4 ein. Dabei werden IP-Adressen von Google innerhalb der EU bzw. des EWR standardmäßig gekürzt und nicht dauerhaft gespeichert. Empfänger sind die Google Ireland Limited sowie die Google LLC, 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA. Die Speicherdauer der Nutzungsdaten ist auf 14 Monate begrenzt. Google Signals, demografische Merkmale und eine Verknüpfung mit Google Ads sind nicht aktiviert. Die Datenübertragung in die USA wird auf das EU-US Data Privacy Framework gestützt. Weitere Informationen zum Umgang mit Nutzerdaten bei Google Analytics finden Sie in der Datenschutzerklärung von Google: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">https://policies.google.com/privacy</a>.</p>
-      </div>
-    </div>
-
-    <div class="legal-block">
-      <div class="legal-body">
-        <h2>Server-Logfiles</h2>
-        <p>Der Hosting-Anbieter erhebt und speichert automatisch Informationen in sogenannten Server-Logfiles, die Ihr Browser automatisch übermittelt: Browsertyp und -version, verwendetes Betriebssystem, Referrer-URL, Hostname des zugreifenden Rechners, Uhrzeit der Serveranfrage sowie die IP-Adresse. Eine Zusammenführung dieser Daten mit anderen Datenquellen findet nicht statt. Die Erfassung erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO; wir haben ein berechtigtes Interesse an der technisch fehlerfreien Darstellung und der Sicherheit unserer Website. Die Logfiles werden nach spätestens 30 Tagen gelöscht.</p>
-        <h2>SSL- bzw. TLS-Verschlüsselung</h2>
-        <p>Diese Seite nutzt aus Sicherheitsgründen und zum Schutz der Übertragung vertraulicher Inhalte eine SSL- bzw. TLS-Verschlüsselung. Eine verschlüsselte Verbindung erkennen Sie daran, dass die Adresszeile des Browsers von „http://" auf „https://" wechselt. Bei aktiver Verschlüsselung können die Daten, die Sie an uns übermitteln, nicht von Dritten mitgelesen werden.</p>
-        <h2>Speicherdauer</h2>
-        <p>Soweit innerhalb dieser Datenschutzerklärung keine speziellere Speicherdauer genannt ist, verbleiben Ihre personenbezogenen Daten bei uns, bis der Zweck für die Datenverarbeitung entfällt. Wenn Sie ein berechtigtes Löschersuchen geltend machen oder eine Einwilligung widerrufen, werden Ihre Daten gelöscht, sofern wir keine anderen rechtlich zulässigen Gründe für die Speicherung haben — etwa handels- oder steuerrechtliche Aufbewahrungsfristen. Im letzteren Fall erfolgt die Löschung nach Wegfall dieser Gründe.</p>
-        <h2>Ihre Rechte</h2>
-        <p>Sie haben jederzeit das Recht, unentgeltlich Auskunft über Herkunft, Empfänger und Zweck Ihrer gespeicherten personenbezogenen Daten zu erhalten (Art. 15 DSGVO). Ihnen stehen ferner das Recht auf Berichtigung (Art. 16), Löschung (Art. 17), Einschränkung der Verarbeitung (Art. 18) und Datenübertragbarkeit (Art. 20 DSGVO) zu. Sie können der Verarbeitung, die auf Art. 6 Abs. 1 lit. f DSGVO beruht, jederzeit widersprechen (Art. 21 DSGVO); richtet sich die Verarbeitung auf Direktwerbung, ist der Widerspruch ohne Angabe von Gründen möglich. Erteilte Einwilligungen können Sie jederzeit widerrufen — die Rechtmäßigkeit der bis zum Widerruf erfolgten Verarbeitung bleibt unberührt.</p>
-        <p>Hierzu sowie zu weiteren Fragen zum Thema Datenschutz können Sie sich jederzeit an uns wenden:<br>
-        <a href="mailto:Marvin.Haas@VENTO-Executives.com">Marvin.Haas@VENTO-Executives.com</a></p>
-        <h3>Beschwerderecht bei der Aufsichtsbehörde</h3>
-        <p>Im Falle von Verstößen gegen die DSGVO steht Ihnen ein Beschwerderecht bei einer Aufsichtsbehörde zu, insbesondere in dem Mitgliedstaat Ihres gewöhnlichen Aufenthalts, Ihres Arbeitsplatzes oder des Orts des vermuteten Verstoßes (Art. 77 DSGVO). Für uns zuständig ist der Hessische Beauftragte für Datenschutz und Informationsfreiheit, Gustav-Stresemann-Ring 1, 65189 Wiesbaden.</p>
-        <h3>Einwilligung widerrufen</h3>
-        <p>Ihre Einwilligung in die Webanalyse können Sie jederzeit über die <a href="#" id="cookie-settings-inline">Cookie-Einstellungen</a> anpassen oder widerrufen.</p>
-        <p class="legal-updated">Stand dieser Datenschutzerklärung: Juli 2026</p>
-      </div>
-    </div>
   </div>
 </main>
 <footer>
   <div class="footer-bottom">
     <span class="footer-copy">© 2026 VENTO Executive Search GbR · Bad Homburg</span>
     <ul class="footer-legal">
-      <li><a href="impressum.html">Impressum</a></li>
-      <li><a href="datenschutz.html">Datenschutz</a></li>
-      <li><a href="#" id="cookie-settings-link">Cookie-Einstellungen</a></li>
+      <li><a href="impressum-en.html">Legal Notice</a></li>
+      <li><a href="datenschutz-en.html">Privacy Policy</a></li>
+      <li><a href="#" id="cookie-settings-link">Cookie Settings</a></li>
     </ul>
   </div>
 </footer>
 
 <script>
-  /* Consent-Widerruf: leitet zur Startseite und öffnet dort das Banner erneut. */
   document.addEventListener('click', function (e) {
-    var t = e.target.closest('#cookie-settings-link, #cookie-settings-inline');
+    var t = e.target.closest('#cookie-settings-link');
     if (!t) return;
     e.preventDefault();
     try { localStorage.removeItem('vento-consent'); } catch (err) {}
