@@ -11,3 +11,16 @@
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: camera=(), microphone=(), geolocation=()
   Strict-Transport-Security: max-age=31536000; includeSubDomains
+
+# Vertrauliche Kandidaten-Seiten: serverseitig von der Indexierung ausnehmen.
+# Diese Datei wird von Netlify NICHT öffentlich ausgeliefert — der Pfad bleibt
+# also verborgen (im Gegensatz zu einem Eintrag in robots.txt).
+/lr
+  X-Robots-Tag: noindex, nofollow, noarchive, nosnippet, noimageindex
+  Referrer-Policy: no-referrer
+  Cache-Control: private, no-store
+
+/lr/*
+  X-Robots-Tag: noindex, nofollow, noarchive, nosnippet, noimageindex
+  Referrer-Policy: no-referrer
+  Cache-Control: private, no-store
