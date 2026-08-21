@@ -154,7 +154,7 @@ window.VENTO_EN_VALUES = [
   /* 130 */ 'From initial engagement to signed contract: insights into the professional search process and its key success factors.',
   /* 131 */ 'What skills does the next generation of leaders need in digital transformation projects at municipal enterprises?',
   /* 132 footer-note (hidden in EN — generic-masculine note is German-only) */ '',
-  /* 133 footer-copy */ '© 2026 VENTO Executive Search GbR',
+  /* 133 footer-copy */ '© 2026 VENTO Executive Search®',
   /* 134 */ 'Legal Notice',
   /* 135 */ 'Privacy',
   /* 136 cookie-settings */ 'Cookie settings',

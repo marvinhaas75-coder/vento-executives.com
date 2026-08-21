@@ -167,7 +167,7 @@
           'text-anchor': 'middle',
           class: 'vw-spot-label vw-hub-brand'
         });
-        brand.textContent = 'VENTO Executive Search';
+        brand.textContent = 'VENTO Executive Search®';
         g.appendChild(brand);
       }
       gSpots.appendChild(g);
