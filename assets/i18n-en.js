@@ -69,7 +69,7 @@ window.VENTO_EN_VALUES = [
   /* 45 Marvin p2 */ 'He began his career in executive search alongside his studies at <span class="hl">NGS Global</span>. He studied Economics and Business Administration at <span class="hl">Johannes Gutenberg University Mainz</span>, majoring in Economics and Data Analysis, and subsequently completed a part-time postgraduate degree in Management at <span class="hl">Cat\u00f3lica Lisbon School of Business &amp; Economics</span>, specializing in Strategy, Entrepreneurship &amp; Impact.',
   /* 45b Marvin p3 */ 'His master\u2019s thesis addresses one of the industry\u2019s defining questions for the future, the growing insourcing of executive search by large multinationals (\u201cHunting the Hunters: The Rise of In-House Executive Search by Large Corporates and Its Impact on Traditional Executive Search Firms\u201d).',
   /* 47 vw-eyebrow */ 'VENTO Executive Search',
-  /* 48 vw-intro */ 'International search engagements require a deep understanding of different markets, cultures, and leadership structures. Together with <strong>NGS Global</strong>, we combine international reach with local market knowledge and cultural sensitivity.',
+  /* 48 vw-intro */ 'International search engagements require a deep understanding of different markets, cultures, and leadership structures. Together with the <strong>global partner network we co-founded</strong>, we combine international reach with local market knowledge and cultural sensitivity.',
   /* 49 leistungen-title */ 'What We Do<br><em>for You</em>',
   /* 50 */ 'Executive Search',
   /* 51 */ 'Management Diagnostics',
