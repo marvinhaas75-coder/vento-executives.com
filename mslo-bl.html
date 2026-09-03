@@ -195,9 +195,10 @@ footer{padding:34px 5vw 42px;border-top:1px solid var(--border)}
 </main>
 <footer>
   <div class="foot-inner">
-    <span>© 2026 VENTO Executive Search GbR · Bad Homburg</span>
+    <span>© <span class="js-year">2026</span> VENTO Executive Search GbR · Bad Homburg</span>
     <span><a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a></span>
   </div>
 </footer>
+<script>document.querySelectorAll('.js-year').forEach(function(e){e.textContent=new Date().getFullYear()});</script>
 </body>
 </html>

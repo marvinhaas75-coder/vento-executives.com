@@ -315,7 +315,7 @@
 </main>
 <footer>
   <div class="footer-bottom">
-    <span class="footer-copy">© 2026 VENTO Executive Search GbR · Bad Homburg</span>
+    <span class="footer-copy">© <span class="js-year">2026</span> VENTO Executive Search GbR · Bad Homburg</span>
     <ul class="footer-legal">
       <li><a href="impressum-en.html">Legal Notice</a></li>
       <li><a href="datenschutz-en.html">Privacy Policy</a></li>
@@ -345,5 +345,6 @@
     });
   })();
 </script>
+<script>document.querySelectorAll('.js-year').forEach(function(e){e.textContent=new Date().getFullYear()});</script>
 </body>
 </html>
