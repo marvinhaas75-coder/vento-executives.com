@@ -5,3 +5,29 @@
 # Projekt (auch aus älteren Einstellungen) noch aktiv sein könnten.
 [build.processing]
   skip_processing = true
+
+# vento-executives.de (Squarespace-DNS -> Netlify-Alias) dauerhaft auf die .com umleiten.
+# force = true, damit die Regel auch greift, obwohl die Dateien im Alias existieren.
+[[redirects]]
+from = "https://vento-executives.de/*"
+to = "https://vento-executives.com/:splat"
+status = 301
+force = true
+
+[[redirects]]
+from = "https://www.vento-executives.de/*"
+to = "https://vento-executives.com/:splat"
+status = 301
+force = true
+
+[[redirects]]
+from = "http://vento-executives.de/*"
+to = "https://vento-executives.com/:splat"
+status = 301
+force = true
+
+[[redirects]]
+from = "http://www.vento-executives.de/*"
+to = "https://vento-executives.com/:splat"
+status = 301
+force = true
